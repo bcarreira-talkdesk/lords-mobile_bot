@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lords Mobile Bot Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="/static/styles.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"
+            defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous" defer></script>
+</head>
+<body data-bs-no-jquery class="navbar-dark bg-dark text-bg-dark">
+<div class="container my-5 d-flex align-items-start">
+
+    <ul class="nav flex-column nav-pills me-3" id="menu" role="tablist" aria-orientation="vertical">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-tab-pane"
+                    type="button" role="tab" aria-controls="general-tab-pane" aria-selected="true">General
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="protection-tab" data-bs-toggle="tab" data-bs-target="#protection-tab-pane"
+                    type="button" role="tab" aria-controls="protection-tab-pane" aria-selected="false">Protection
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="supply-tab" data-bs-toggle="tab" data-bs-target="#supply-tab-pane"
+                    type="button" role="tab" aria-controls="supply-tab-pane" aria-selected="false">Supply
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="gathering-tab" data-bs-toggle="tab" data-bs-target="#gathering-tab-pane"
+                    type="button" role="tab" aria-controls="gathering-tab-pane" aria-selected="false">Gathering
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="rallies-tab" data-bs-toggle="tab" data-bs-target="#rallies-tab-pane"
+                    type="button" role="tab" aria-controls="rallies-tab-pane" aria-selected="false">Rallies
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cargo-tab" data-bs-toggle="tab" data-bs-target="#cargo-tab-pane"
+                    type="button" role="tab" aria-controls="cargo-tab-pane" aria-selected="false">Cargo Ship
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="gems-tab" data-bs-toggle="tab" data-bs-target="#gems-tab-pane"
+                    type="button" role="tab" aria-controls="gems-tab-pane" aria-selected="false">Gems/Coins
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="talents-tab" data-bs-toggle="tab" data-bs-target="#talents-tab-pane"
+                    type="button" role="tab" aria-controls="talents-tab-pane" aria-selected="false">Talents
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="heroes-tab" data-bs-toggle="tab" data-bs-target="#heroes-tab-pane"
+                    type="button" role="tab" aria-controls="heroes-tab-pane" aria-selected="false">Heroes
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="building-tab" data-bs-toggle="tab" data-bs-target="#building-tab-pane"
+                    type="button" role="tab" aria-controls="building-tab-pane" aria-selected="false">Building
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="research-tab" data-bs-toggle="tab" data-bs-target="#research-tab-pane"
+                    type="button" role="tab" aria-controls="research-tab-pane" aria-selected="false">Research
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="army-tab" data-bs-toggle="tab" data-bs-target="#army-tab-pane"
+                    type="button" role="tab" aria-controls="army-tab-pane" aria-selected="false">Army
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="monsters-tab" data-bs-toggle="tab" data-bs-target="#monsters-tab-pane"
+                    type="button" role="tab" aria-controls="monsters-tab-pane" aria-selected="false">Monsters
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="artifacts-tab" data-bs-toggle="tab" data-bs-target="#artifacts-tab-pane"
+                    type="button" role="tab" aria-controls="artifacts-tab-pane" aria-selected="false">Artifacts
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="guild-fest-tab" data-bs-toggle="tab" data-bs-target="#guild-fest-tab-pane"
+                    type="button" role="tab" aria-controls="guild-fest-tab-pane" aria-selected="false">Guild Fest
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane"
+                    type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Equipment
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="guild-bank-tab" data-bs-toggle="tab" data-bs-target="#guild-bank-tab-pane"
+                    type="button" role="tab" aria-controls="guild-bank-tab-pane" aria-selected="false">Guild Bank
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="guild-manage-tab" data-bs-toggle="tab" data-bs-target="#guild-manage-tab-pane"
+                    type="button" role="tab" aria-controls="guild-manage-tab-pane" aria-selected="false">Guild Manage
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule-tab-pane"
+                    type="button" role="tab" aria-controls="schedule-tab-pane" aria-selected="false">Schedule
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="general-tab-pane" role="tabpanel" aria-labelledby="general-tab"
+             tabindex="0">
+            <div class="vstack gap-2">
+                <section>
+                    <h2>General</h2>
+                    <div class="row gap-3">
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="use_vip_points">
+                            <label class="form-check-label" for="use_vip_points">
+                                Use VIP Points
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="open_all_chests">
+                            <label class="form-check-label" for="open_all_chests">
+                                Open All Chests
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="use_rss_from_bag">
+                            <label class="form-check-label" for="use_rss_from_bag">
+                                Use RSS FROM Bag (Build, Research, etc)
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="use_star_scrolls">
+                            <label class="form-check-label" for="use_star_scrolls">
+                                Use Star Scrolls
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="use_exp_items">
+                            <label class="form-check-label" for="use_exp_items">
+                                Use Exp Items
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="put_gems_in_treasure">
+                            <label class="form-check-label" for="put_gems_in_treasure">
+                                Put Gems In Treasure (30 Days)
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Quests</h2>
+                    <div class="row gap-3">
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="mystery_box">
+                            <label class="form-check-label" for="mystery_box">
+                                Mystery Box
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="turf_quests">
+                            <label class="form-check-label" for="turf_quests">
+                                Turf Quests
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="admin_quests">
+                            <label class="form-check-label" for="admin_quests">
+                                Admin Quests
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="daily_login_gifts">
+                            <label class="form-check-label" for="daily_login_gifts">
+                                Daily Login Gifts
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="vip_quests">
+                            <label class="form-check-label" for="vip_quests">
+                                VIP Quests
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="guild_quests">
+                            <label class="form-check-label" for="guild_quests">
+                                Guild Quests
+                            </label>
+                        </div>
+                        <div class="form-check col-sm-4 col-md-2">
+                            <input class="form-check-input" type="checkbox" value="" id="adventure_quests">
+                            <label class="form-check-label" for="adventure_quests">
+                                Adventure Log
+                            </label>
+                        </div>
+                    </div>
+                    <div class="hstack gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="open_all_guild_quests">
+                            <label class="form-check-label" for="open_all_guild_quests">
+                                Open All Guild Quests
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="open_all_admin_quests">
+                            <label class="form-check-label" for="open_all_admin_quests">
+                                Open All Admin Quests
+                            </label>
+                        </div>
+                        <div class="form-input">
+                            <label for="quest_reserve" class="form-label">Quest Reserve</label>
+                            <input class="form-control" type="text" id="quest_reserve">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="tab-pane fade show active" id="protection-tab-pane" role="tabpanel" aria-labelledby="protection-tab"
+             tabindex="1">
+        </div>
+        <div class="tab-pane fade show active" id="supply-tab-pane" role="tabpanel" aria-labelledby="supply-tab"
+             tabindex="2">
+        </div>
+        <div class="tab-pane fade show active" id="gathering-tab-pane" role="tabpanel" aria-labelledby="gathering-tab"
+             tabindex="4">
+        </div>
+        <div class="tab-pane fade show active" id="rallies-tab-pane" role="tabpanel" aria-labelledby="rallies-tab"
+             tabindex="5">
+        </div>
+        <div class="tab-pane fade show active" id="cargo-tab-pane" role="tabpanel" aria-labelledby="cargo-tab"
+             tabindex="6">
+        </div>
+        <div class="tab-pane fade show active" id="gems-tab-pane" role="tabpanel" aria-labelledby="gems-tab"
+             tabindex="7">
+        </div>
+        <div class="tab-pane fade show active" id="talents-tab-pane" role="tabpanel" aria-labelledby="talents-tab"
+             tabindex="8">
+        </div>
+        <div class="tab-pane fade show active" id="heroes-tab-pane" role="tabpanel" aria-labelledby="heroes-tab"
+             tabindex="8">
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

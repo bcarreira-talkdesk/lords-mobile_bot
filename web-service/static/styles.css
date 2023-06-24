@@ -1,0 +1,50 @@
+/*
+ * Custom CSS
+ */
+
+ :root {
+    --bs-body-bg: var(--bs-gray-100);
+  }
+
+body {
+    color: var(--bs-primary-text-emphasis);
+    background-color: var(--bs-primary-bg-subtle);
+  }
+
+.tab-pane {
+    overflow: auto;
+}
+
+.stats_list {
+    min-width: 930px;
+}
+
+.stats_list .head {
+    background-color: var(--bs-gray-600);
+    color: var(--bs-light);
+    font-weight: bold;
+}
+
+.stats_list .body .item:nth-child(odd) {
+    background-color: var(--bs-gray-300);
+}
+.stats_list .body .item:nth-child(even) {
+    background-color: var(--bs-gray-200);
+}
+
+section {
+    border: #D3D3D3 solid 1px;
+    margin: 10px;
+}
+
+section > h2 {
+    background-color: #505050;
+}
+
+section > * {
+    padding: 10px;
+}
+
+* {
+    font-size: 14px;
+}
